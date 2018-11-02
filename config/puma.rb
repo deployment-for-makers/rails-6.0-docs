@@ -7,6 +7,10 @@
 threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 threads threads_count, threads_count
 
+bind       "unix:///home/docs_rails/app/tmp/puma.sock"
+pidfile    "/home/docs_rails/app/tmp/puma.pid"
+state_path "/home/docs_rails/app/tmp/puma.state"
+
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
 port        ENV.fetch("PORT") { 3000 }
