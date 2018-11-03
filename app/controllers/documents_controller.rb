@@ -28,6 +28,8 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       if @document.save
+        @document.file.attach(document_params[:file]) if document_params[:file]
+
         format.html { redirect_to @document, notice: 'Document was successfully created.' }
         format.json { render :show, status: :created, location: @document }
       else
@@ -42,6 +44,8 @@ class DocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @document.update(document_params)
+        @document.file.attach(document_params[:file]) if document_params[:file]
+
         format.html { redirect_to @document, notice: 'Document was successfully updated.' }
         format.json { render :show, status: :ok, location: @document }
       else
@@ -69,6 +73,6 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:name, :content)
+      params.require(:document).permit(:name, :content, :file)
     end
 end

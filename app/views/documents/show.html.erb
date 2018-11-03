@@ -10,5 +10,12 @@
   <%= @document.content %>
 </p>
 
+<% if @document.file.attached? %>
+  <p>
+    <strong>File:</strong>
+    <%= link_to "Download", rails_blob_path(@document.file, disposition: "attachment") %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_document_path(@document) %> |
 <%= link_to 'Back', documents_path %>
