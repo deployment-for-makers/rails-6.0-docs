@@ -30,6 +30,11 @@ class DocumentsController < ApplicationController
       if @document.save
         @document.file.attach(document_params[:file]) if document_params[:file]
 
+        ActionCable.server.broadcast(
+          "document_channel",
+          title: "#{@document.name} was created!"
+        )
+
         format.html { redirect_to @document, notice: 'Document was successfully created.' }
         format.json { render :show, status: :created, location: @document }
       else
@@ -45,6 +50,11 @@ class DocumentsController < ApplicationController
     respond_to do |format|
       if @document.update(document_params)
         @document.file.attach(document_params[:file]) if document_params[:file]
+
+        ActionCable.server.broadcast(
+          "document_channel",
+          title: "#{@document.name} was edited!"
+        )
 
         format.html { redirect_to @document, notice: 'Document was successfully updated.' }
         format.json { render :show, status: :ok, location: @document }
