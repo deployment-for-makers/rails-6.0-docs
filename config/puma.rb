@@ -10,15 +10,12 @@ threads threads_count, threads_count
 environment = ENV.fetch("RAILS_ENV") { "development" }
 
 if environment == 'production'
-  bind       "unix:///home/docs_rails/app/tmp/puma.sock"
-  pidfile    "/home/docs_rails/app/tmp/puma.pid"
-  state_path "/home/docs_rails/app/tmp/puma.state"
+  bind       "unix:///srv/app/tmp/puma.sock"
+  pidfile    "/srv/app/tmp/puma.pid"
+  state_path "/srv/app/tmp/puma.state"
 else
   port        ENV.fetch("PORT") { 3000 }
 end
-# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
-#
-port        ENV.fetch("PORT") { 3000 }
 
 # Specifies the `environment` that Puma will run in.
 #
