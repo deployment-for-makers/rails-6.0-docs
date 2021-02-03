@@ -12,6 +12,7 @@ environment = ENV.fetch("RAILS_ENV") { "development" }
 app_path = ENV.fetch("APP_PATH") { Dir.pwd }
 
 if environment == 'production'
+  bind       "tcp://0.0.0.0:3000"
   bind       "unix:///#{app_path}/tmp/puma.sock"
   pidfile    "#{app_path}/tmp/puma.pid"
   state_path "#{app_path}/tmp/puma.state"

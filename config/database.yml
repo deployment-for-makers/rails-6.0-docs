@@ -82,3 +82,5 @@ production:
   <<: *default
   database: docs
   username: docs
+  # Uncomment to use URL
+  # url: <%= ENV['DATABASE_URL'] %>
