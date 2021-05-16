@@ -10,6 +10,8 @@ gem 'rails', '~> 6.0.0.rc2'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 5.1'
+# For Watchdog in systemd
+gem 'sd_notify'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6.0.0.beta3'
 # Use Uglifier as compressor for JavaScript assets
