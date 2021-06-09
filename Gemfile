@@ -12,15 +12,10 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 5.1'
 # For Watchdog in systemd
 gem 'sd_notify'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 6.0.0.beta3'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 5.0.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -59,6 +54,15 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+end
+
+group :assets do
+  # Use Uglifier as compressor for JavaScript assets
+  gem 'uglifier', '>= 1.3.0'
+  gem 'execjs'
+  gem 'sass-rails', '~> 6.0.0.beta3'
+  # Use CoffeeScript for .coffee assets and views
+  gem 'coffee-rails', '~> 5.0.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
