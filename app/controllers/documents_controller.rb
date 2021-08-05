@@ -32,7 +32,7 @@ class DocumentsController < ApplicationController
 
         ActionCable.server.broadcast(
           "document_channel",
-          title: "#{@document.name} was created!"
+          { title: "#{@document.name} was created!" }
         )
 
         format.html { redirect_to @document, notice: 'Document was successfully created.' }
@@ -53,7 +53,7 @@ class DocumentsController < ApplicationController
 
         ActionCable.server.broadcast(
           "document_channel",
-          title: "#{@document.name} was edited!"
+          { title: "#{@document.name} was edited!" }
         )
 
         format.html { redirect_to @document, notice: 'Document was successfully updated.' }
